@@ -14,6 +14,11 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
 $router->get('/test', function () use ($router) {
-    return true;
+    return 'true';
+});
+
+$router->get('/login', function () use ($router) {
+    return 'Login';
 });

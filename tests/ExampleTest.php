@@ -22,7 +22,15 @@ class ExampleTest extends TestCase
     public function testTrue()
     {
         $this->get('/test');
+        $this->assertStringContainsString('true', $this->response->getContent());
+    }
 
-        $this->assertTrue(true, $this->response->getContent());
+    public function testMinimalLengthIsFour()
+    {
+        $this->get('/test');
+
+        $this->assertEquals(
+            4, strlen($this->response->getContent())
+        );
     }
 }
